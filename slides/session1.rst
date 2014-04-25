@@ -215,6 +215,8 @@ Soluce :)
     void loop() {
         digitalWrite(LED_BUILTIN, HIGH);
         delay(TEMPS);
+        digitalWrite(LED_BUILTIN, LOW);
+        delay(TEMPS);
     }
 
 ----
