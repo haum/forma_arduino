@@ -3,6 +3,7 @@
 :css: css/style.css
 
 .. role:: i
+.. |---| unicode:: U+02015 .. em dash
 
 .. title:: Formation Arduino : Part 1
 
@@ -222,12 +223,51 @@ Soluce :)
 :data-y: r1600
 :data-x: r0
 
-Boucles
-=======
+Boucles simples
+===============
 
 ----
 
 :data-y: r0
 :data-x: r1600
 
-lol
+While
+=====
+
+    Tant que je gagne, je joue ! |---| Coluche
+
+.. code:: c
+
+    while (je gagne) {
+        // je joue
+    }
+
+    // -- Arduino
+
+- faire quelque chose tant qu'une condition est vraie...
+- ou infiniment si la condition est toujours vraie (``true``)
+
+
+----
+
+Conditions
+==========
+
+- Tout ce qui n'est pas 0 est vrai
+
+.. code:: c
+
+    true || true // true
+    true || false // true
+    false || false // false
+
+    true && true // true
+    true && false // false
+    false && false // false
+
+    !true // false
+
+.. note::
+
+    distributif, communatif
+

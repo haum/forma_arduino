@@ -31,4 +31,16 @@
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
     <span class="n">delay</span><span class="p">(</span><span class="n">TEMPS</span><span class="p">);</span>
-<span class="p">}</span></pre></div><div class="step" step="14" data-y="3200" data-x="19200"><h1 id="boucles">Boucles</h1></div><div class="step" step="15" data-y="3200" data-x="20800"><p>lol</p></div></div><div id="hovercraft-help" class="hide"><table><tr><th>Space</th><td>Forward</td></tr><tr><th>Right, Down, Page Down</th><td>Next slide</td></tr><tr><th>Left, Up, Page Up</th><td>Previous slide</td></tr><tr><th>P</th><td>Open presenter console</td></tr><tr><th>H</th><td>Toggle this help</td></tr></table></div><script type="text/javascript" src="js/impress.js"></script><script type="text/javascript" src="js/impressConsole.js"></script><script type="text/javascript" src="js/hovercraft.js"></script></body></html>
+<span class="p">}</span></pre></div><div class="step" step="14" data-y="3200" data-x="19200"><h1 id="boucles-simples">Boucles simples</h1></div><div class="step" step="15" data-y="3200" data-x="20800"><h1 id="while">While</h1><blockquote><p>Tant que je gagne, je joue ! &#x2015; Coluche</p></blockquote><pre class="highlight code c"><span class="k">while</span> <span class="p">(</span><span class="n">je</span> <span class="n">gagne</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// je joue
+</span><span class="p">}</span>
+
+<span class="c1">// -- Arduino</span></pre><ul><li>faire quelque chose tant qu'une condition est vraie...</li><li>ou infiniment si la condition est toujours vraie (<tt>true</tt>)</li></ul></div><div class="step" step="16" data-x="22400" data-y="3200"><h1 id="conditions">Conditions</h1><ul><li>Tout ce qui n'est pas 0 est vrai</li></ul><pre class="highlight code c"><span class="nb">true</span> <span class="o">||</span> <span class="nb">true</span> <span class="c1">// true
+</span><span class="nb">true</span> <span class="o">||</span> <span class="nb">false</span> <span class="c1">// true
+</span><span class="nb">false</span> <span class="o">||</span> <span class="nb">false</span> <span class="c1">// false
+</span>
+<span class="nb">true</span> <span class="o">&amp;&amp;</span> <span class="nb">true</span> <span class="c1">// true
+</span><span class="nb">true</span> <span class="o">&amp;&amp;</span> <span class="nb">false</span> <span class="c1">// false
+</span><span class="nb">false</span> <span class="o">&amp;&amp;</span> <span class="nb">false</span> <span class="c1">// false
+</span>
+<span class="o">!</span><span class="nb">true</span> <span class="c1">// false</span></pre><div class="notes"><p>distributif, communatif</p></div></div></div><div id="hovercraft-help" class="hide"><table><tr><th>Space</th><td>Forward</td></tr><tr><th>Right, Down, Page Down</th><td>Next slide</td></tr><tr><th>Left, Up, Page Up</th><td>Previous slide</td></tr><tr><th>P</th><td>Open presenter console</td></tr><tr><th>H</th><td>Toggle this help</td></tr></table></div><script type="text/javascript" src="js/impress.js"></script><script type="text/javascript" src="js/impressConsole.js"></script><script type="text/javascript" src="js/hovercraft.js"></script></body></html>
