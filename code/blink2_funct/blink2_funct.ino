@@ -1,18 +1,18 @@
 #define LED 13
-#define TEMPS 1000
+#define TEMPS 500
 
 void setup() {
 	pinMode(LED, OUTPUT);
 }
 
 void loop() {
-	blink();
+	blink(TEMPS);
 }
 
-void blink() {
+void blink(int temps) {
 	digitalWrite(LED_BUILTIN, HIGH);
-	delay(TEMPS);
+	delay(temps);
 	digitalWrite(LED_BUILTIN, LOW);
-	delay(TEMPS);
+	delay(temps);
 }
 

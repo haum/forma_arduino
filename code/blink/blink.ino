@@ -1,4 +1,3 @@
-#define LED_BUILTIN 13
 #define TEMPS 1000
 
 void setup() {
