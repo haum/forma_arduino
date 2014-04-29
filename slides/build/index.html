@@ -33,11 +33,7 @@
     <span class="n">delay</span><span class="p">(</span><span class="n">TEMPS</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
     <span class="n">delay</span><span class="p">(</span><span class="n">TEMPS</span><span class="p">);</span>
-<span class="p">}</span></pre></div><div class="step" step="14" data-y="3200" data-x="19200"><h1 id="boucles-simples">Boucles simples</h1></div><div class="step" step="15" data-y="3200" data-x="20800"><h1 id="while">While</h1><blockquote><p>Tant que je gagne, je joue ! &#x2015; Coluche</p></blockquote><pre class="highlight code c"><span class="k">while</span> <span class="p">(</span><span class="n">je</span> <span class="n">gagne</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// je joue
-</span><span class="p">}</span>
-
-<span class="c1">// -- Arduino</span></pre><ul><li>faire quelque chose tant qu'une condition est vraie...</li><li>ou infiniment si la condition est toujours vraie (<tt>true</tt>)</li></ul></div><div class="step" step="16" data-x="22400" data-y="3200"><h1 id="conditions">Conditions</h1><ul><li>Tout ce qui n'est pas 0 est vrai</li></ul><pre class="highlight code c"><span class="nb">true</span> <span class="o">||</span> <span class="nb">true</span> <span class="c1">// true
+<span class="p">}</span></pre></div><div class="step" step="14" data-y="3200" data-x="19200"><h1 id="boucles-simples">Boucles simples</h1></div><div class="step" step="15" data-y="3200" data-x="20800"><h1 id="conditions">Conditions</h1><ul><li>Tout ce qui n'est pas 0 est vrai</li></ul><pre class="highlight code c"><span class="nb">true</span> <span class="o">||</span> <span class="nb">true</span> <span class="c1">// true
 </span><span class="nb">true</span> <span class="o">||</span> <span class="nb">false</span> <span class="c1">// true
 </span><span class="nb">false</span> <span class="o">||</span> <span class="nb">false</span> <span class="c1">// false
 </span>
@@ -45,4 +41,103 @@
 </span><span class="nb">true</span> <span class="o">&amp;&amp;</span> <span class="nb">false</span> <span class="c1">// false
 </span><span class="nb">false</span> <span class="o">&amp;&amp;</span> <span class="nb">false</span> <span class="c1">// false
 </span>
-<span class="o">!</span><span class="nb">true</span> <span class="c1">// false</span></pre><div class="notes"><p>distributif, communatif</p></div></div></div><div id="hovercraft-help" class="hide"><table><tr><th>Space</th><td>Forward</td></tr><tr><th>Left, Down, Page Down</th><td>Next slide</td></tr><tr><th>Right, Up, Page Up</th><td>Previous slide</td></tr><tr><th>P</th><td>Open presenter console</td></tr><tr><th>H</th><td>Toggle this help</td></tr></table></div><script type="text/javascript" src="js/impress.js"></script><script type="text/javascript" src="js/impressConsole.js"></script><script type="text/javascript" src="js/hovercraft.js"></script></body></html>
+<span class="o">!</span><span class="nb">true</span> <span class="c1">// false</span></pre><div class="notes"><p>distributif, communatif</p></div></div><div class="step" step="16" data-x="22400" data-y="3200"><h1 id="variables">Variables</h1><ul><li>D&#xE9;finir des noms pour y mettre des valeurs :</li></ul><pre class="highlight code c"><span class="c1">// premier exemple : l'entier
+</span><span class="kt">int</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="c1">// pour les autres on verra plus tard.
+</span></pre></div><div class="step" step="17" data-x="24000" data-y="3200"><h1 id="operations-operateurs">Op&#xE9;rations, Op&#xE9;rateurs</h1><h2 id="maths">Maths</h2><pre class="highlight code c"><span class="o">=</span>       <span class="c1">// assignation
+</span><span class="o">-</span> <span class="o">+</span> <span class="o">*</span>   <span class="c1">// vous connaissez...
+</span><span class="o">/</span>       <span class="c1">// division enti&#xE8;re
+</span><span class="o">%</span>       <span class="c1">// reste de la division enti&#xE8;re
+</span><span class="o">--</span> <span class="o">++</span>   <span class="c1">// d&#xE9;cr&#xE9;ment/incr&#xE9;ment</span></pre><h2 id="logiques">Logiques</h2><pre class="highlight code c"><span class="o">==</span>      <span class="c1">// &#xE9;galit&#xE9;
+</span><span class="o">!=</span>      <span class="c1">// diff&#xE9;rent
+</span><span class="o">&lt;</span> <span class="o">&gt;</span>     <span class="c1">// inf&#xE9;rieur/sup&#xE9;rieur
+</span><span class="o">&gt;=</span> <span class="o">&lt;=</span>   <span class="c1">// inf/sup ou &#xE9;gal</span></pre></div><div class="step" step="18" data-x="25600" data-y="3200"><h1 id="while">While</h1><blockquote><p>Tant que je gagne, je joue ! &#x2015; Coluche</p></blockquote><pre class="highlight code c"><span class="k">while</span> <span class="p">(</span><span class="n">je</span> <span class="n">gagne</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// je joue
+</span><span class="p">}</span>
+
+<span class="c1">// -- Arduino</span></pre><ul><li>faire quelque chose tant qu'une condition est vraie...</li><li>ou infiniment si la condition est toujours vraie (<tt>true</tt>)</li></ul></div><div class="step" step="19" data-x="27200" data-y="3200"><h1 id="faire-clignoter-une-led-10-fois">Faire clignoter une LED 10 fois</h1></div><div class="step" step="20" data-x="28800" data-y="3200"><h1 id="id2">Soluce</h1><pre class="highlight code c"><span class="cp">#define NB 10       </span><span class="c1">// nombre de blinks
+</span><span class="cp">#define TEMPS 1000  </span><span class="c1">// intervales
+</span>
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">NB</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">delay</span><span class="p">(</span><span class="n">TEMPS</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">delay</span><span class="p">(</span><span class="n">TEMPS</span><span class="p">);</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span></pre></div><div class="step" step="21" data-y="4800" data-x="28800"><h1 id="fonctions-procedures">Fonctions/Proc&#xE9;dures</h1><img src="imgs/fonctions.png" alt="" width="600px" height=""></img></div><div class="step" step="22" data-y="4800" data-x="30400"><h1 id="concept">Concept</h1><ul><li>bout de programme d&#xE9;sign&#xE9; par un nom</li><li>peut recevoir des param&#xE8;tres en entr&#xE9;e</li><li>peut renvoyer une valeur</li></ul><h1 id="variables-et-fonctions">Variables et fonctions</h1><ul><li>les variables d&#xE9;finies dans les fonctions ne sont accessible <span class="i">que dedans</span></li><li>les variables d&#xE9;finies en dehors de toute fonction sont accessibles <span class="i">partout</span></li></ul></div><div class="step" step="23" data-x="32000" data-y="4800"><h1 id="syntaxe-generale">Syntaxe g&#xE9;n&#xE9;rale</h1><pre class="highlight code c"><span class="o">&lt;</span><span class="n">type</span> <span class="n">de</span> <span class="n">retour</span><span class="o">&gt;</span> <span class="n">nom_de_la_fonction</span> <span class="p">(</span><span class="n">type1</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">etc</span><span class="p">...)</span> <span class="p">{</span>
+    <span class="c1">// code
+</span><span class="p">}</span>
+
+<span class="c1">// pour une proc&#xE9;dure (sans retour)
+</span><span class="kt">void</span> <span class="n">fonction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// code
+</span><span class="p">}</span>
+
+<span class="c1">// retour d'un entier :
+</span><span class="kt">int</span> <span class="n">fonction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// code
+</span>    <span class="k">return</span> <span class="n">un_truc</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// +42
+</span><span class="kt">int</span> <span class="n">plus42</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">42</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span></pre></div><div class="step" step="24" data-x="33600" data-y="4800"><h1 id="blink-en-fonction">Blink en fonction !</h1></div><div class="step" step="25" data-x="35200" data-y="4800"><h1 id="id3">Soluce</h1><pre class="highlight code c"><span class="cp">#define LED 13
+#define TEMPS 1000
+</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">blink</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">blink</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">TEMPS</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">TEMPS</span><span class="p">);</span>
+<span class="p">}</span></pre></div><div class="step" step="26" data-x="36800" data-y="4800"><h1 id="parametrer-le-temps-d-allumage">Param&#xE8;trer le temps d'allumage</h1></div><div class="step" step="27" data-x="38400" data-y="4800"><h1 id="id4">Soluce</h1><pre class="highlight code c"><span class="cp">#define LED 13
+#define TEMPS 500
+</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">blink</span><span class="p">(</span><span class="n">TEMPS</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">blink</span><span class="p">(</span><span class="kt">int</span> <span class="n">temps</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">temps</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">temps</span><span class="p">);</span>
+<span class="p">}</span></pre></div><div class="step" step="28" data-y="6400" data-x="38400"><h1 id="conditionnelles">Conditionnelles</h1></div><div class="step" step="29" data-y="6400" data-x="40000"><h1 id="et-si">Et si ?</h1><pre class="highlight code c"><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// fait un truc
+</span><span class="p">}</span></pre><h1 id="et-sinon">Et sinon ?</h1><pre class="highlight code c"><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// fait un truc
+</span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// sinon...
+</span>    <span class="c1">// ou un autre
+</span><span class="p">}</span></pre></div><div class="step" step="30" data-x="41600" data-y="6400"><h1 id="on-en-chaine">On (en)chaine !</h1><pre class="highlight code c"><span class="k">if</span> <span class="p">(</span><span class="n">condition</span> <span class="n">A</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// truc A
+</span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span> <span class="n">B</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// truc B
+</span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// sinon
+</span>    <span class="c1">// truc C
+</span><span class="p">}</span></pre></div></div><div id="hovercraft-help" class="hide"><table><tr><th>Space</th><td>Forward</td></tr><tr><th>Right, Down, Page Down</th><td>Next slide</td></tr><tr><th>Left, Up, Page Up</th><td>Previous slide</td></tr><tr><th>P</th><td>Open presenter console</td></tr><tr><th>H</th><td>Toggle this help</td></tr></table></div><script type="text/javascript" src="js/impress.js"></script><script type="text/javascript" src="js/impressConsole.js"></script><script type="text/javascript" src="js/hovercraft.js"></script></body></html>
