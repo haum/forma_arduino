@@ -1,0 +1,60 @@
+/*
+ * style.css
+ *
+ * Copyright (C) 2014 Mathieu Gaborit (matael) <mathieu@matael.org>
+ *
+ *
+ * Distributed under WTFPL terms
+ *
+ *            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+ *                    Version 2, December 2004
+ *
+ * Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+ *
+ * Everyone is permitted to copy and distribute verbatim or modified
+ * copies of this license document, and changing it is allowed as long
+ * as the name is changed.
+ *
+ *            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+ *   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+ *
+ *  0. You just DO WHAT THE FUCK YOU WANT TO.
+ *
+ */
+
+@font-face {
+	font-family: "Andika";
+	src: url("../font/Andika-R.ttf");
+}
+
+body {
+	color: #6b3f00;
+	background-color: #e6cdab;
+	font-size: 1.2em;
+	font-family: Andika, Arial, sans-serif;
+}
+
+h1 { 
+	font-size: 2em;
+	text-align: center;
+}
+
+h2 {
+	font-size: .9em;
+}
+
+a {
+	display: block;
+	text-align: center;
+	text-decoration: None;
+	color: #6b3f00
+}
+
+.i {
+	color: #e8580c;
+}
+
+blockquote {
+	font-style: italic;
+}
+
