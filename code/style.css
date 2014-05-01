@@ -41,6 +41,10 @@ h1 { 
 
 h2 {
 	font-size: .9em;
+	width: 75%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 a {
