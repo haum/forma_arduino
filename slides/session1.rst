@@ -206,8 +206,8 @@ Allumer une LED
 
 ----
 
-Soluce :)
----------
+Solution :)
+-----------
 
 .. code:: c
 
@@ -249,8 +249,8 @@ Faire clignoter la LED
 
 ----
 
-Soluce :)
----------
+Solution :)
+-----------
 
 .. code:: c
 
@@ -366,8 +366,8 @@ Faire clignoter une LED 10 fois
 
 ----
 
-Soluce
-======
+Solution
+========
 
 .. code:: c
 
@@ -455,8 +455,8 @@ Blink en fonction !
 
 ----
 
-Soluce
-======
+Solution
+========
 
 .. code:: c
 
@@ -486,8 +486,8 @@ Paramètrer le temps d'allumage
 
 ----
 
-Soluce
-======
+Solution
+========
 
 .. code:: c
 
@@ -616,8 +616,8 @@ La LED clignote **si** le bouton est enfoncé !
 
 ----
 
-Soluce
-======
+Solution
+========
 
 .. code:: c
 
@@ -651,8 +651,8 @@ Deux boutons activent la LED, à :i:`deux fréquences différentes`.
 
 ----
 
-Soluce
-======
+Solution
+========
 
 .. code:: c
 
@@ -667,8 +667,8 @@ Un première appui allume la LED, un second l'éteint.
 
 ----
 
-Soluce
-======
+Solution
+========
 
 .. code:: c
 
