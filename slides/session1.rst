@@ -12,19 +12,58 @@
 Formation Arduino
 =================
 
+----
+
+Partie 0 : les outils pour programmer !
+---------------------------------------
+
+----
+
+:id: sect_outils
+
+IDE Arduino
+===========
+
+.. image:: imgs/IDE.png
+	:width: 600px
+
+Disponible pour Windows, Linux, MacOS
+
+http://arduino.cc
+
+----
+
+IDE web
+=======
+
+.. image:: imgs/codebender.png
+	:width: 600px
+
+http://codebender.cc
+
+juste un plug-in a installer dans son navigateur
+
+----
+
 Partie 1 : Bases !
 ------------------
 
 ----
+
+:data-y: r1600
+:data-x: r0
 
 :id: sect_structure
 
 Structure d'un programme
 ========================
 
-Depuis la version 1 : programmes en ``.pde``
+Depuis la version 1 : programmes en ``.ino``
 
 ----
+
+:data-y: r0
+:data-x: r1600
 
 # Déclarations
 ==============
@@ -98,10 +137,18 @@ Un programme (inutile mais) fonctionnel...
 :data-y: r1600
 :data-x: r0
 
+Entrées et Sorties Numériques
+-----------------------------
+
+.. image:: imgs/sorties_num/entre_sorties.png
+    :width: 600px
+
+----
+
 Sorties Numériques
 ==================
 
-.. image:: imgs/sorties_num/ArduinoUno.jpg
+.. image:: imgs/sorties_num/carte_arduino.png
     :width: 600px
 
 ----
