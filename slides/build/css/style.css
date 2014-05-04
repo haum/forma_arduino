@@ -57,3 +57,14 @@ blockquote {
 	font-style: italic;
 }
 
+
+/* Particularité sur slides */
+#pullup img {
+    float:right;
+    padding-left: 20px;
+}
+
+#bouncing img {
+    float:right;
+    padding-left: 20px;
+}

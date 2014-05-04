@@ -140,4 +140,96 @@
     <span class="c1">// truc B
 </span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// sinon
 </span>    <span class="c1">// truc C
-</span><span class="p">}</span></pre></div></div><div id="hovercraft-help" class="hide"><table><tr><th>Space</th><td>Forward</td></tr><tr><th>Left, Down, Page Down</th><td>Next slide</td></tr><tr><th>Right, Up, Page Up</th><td>Previous slide</td></tr><tr><th>P</th><td>Open presenter console</td></tr><tr><th>H</th><td>Toggle this help</td></tr></table></div><script type="text/javascript" src="js/impress.js"></script><script type="text/javascript" src="js/impressConsole.js"></script><script type="text/javascript" src="js/hovercraft.js"></script></body></html>
+</span><span class="p">}</span></pre></div><div class="step" step="36" data-y="11200" data-x="46400"><h1 id="entrees-numeriques">Entr&#xE9;es num&#xE9;riques</h1><p>(<em>digital</em> chez les anglais...)</p></div><div class="step" step="37" data-y="11200" data-x="48000" id="pullup"><h1 id="generalites">G&#xE9;n&#xE9;ralit&#xE9;s</h1><ul><li>m&#xEA;mes ports que les sorties num&#xE9;riques</li><li>choix de la "fonction" entr&#xE9;e avec <tt>pinMode</tt> et <tt>INPUT</tt></li><li>l'entr&#xE9;e &#xE0; deux niveaux : <tt>HIGH</tt> et <tt>LOW</tt></li></ul><h1 id="input-pullup">INPUT_PULLUP ?</h1><img src="imgs/pullup.png" alt="" width="200px" height=""></img><p>Permet de mettre une entr&#xE9;e au niveau <span class="i">haut</span> si l'interrupteur est <strong>ouvert</strong> !</p><p>Sur Arduino la r&#xE9;sistance de <span class="i">pull-up est interne</span>. Sur certains microcontr&#xF4;lleurs, on peut aussi choisir d'activer un
+pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h1 id="exemples">Exemples</h1><pre class="highlight code c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">INPUT</span><span class="p">);</span> <span class="c1">// input standard
+</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span> <span class="c1">// entr&#xE9;e "tir&#xE9;e"
+</span><span class="p">}</span></pre></div><div class="step" step="39" data-x="51200" data-y="11200"><h1 id="push-to-blink">Push-to-blink</h1><p>La LED clignote <strong>si</strong> le bouton est enfonc&#xE9; !</p></div><div class="step" step="40" data-x="52800" data-y="11200"><h1 id="id5">Soluce</h1><pre class="highlight code c"><span class="cp">#define BP 2 </span><span class="c1">// bp sur l'entr&#xE9;e 2
+</span><span class="cp">#define TEMPS 250
+</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">BP</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BP</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">blink</span><span class="p">(</span><span class="n">TEMPS</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">blink</span><span class="p">(</span><span class="kt">int</span> <span class="n">temps</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">temps</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">temps</span><span class="p">);</span>
+<span class="p">}</span></pre></div><div class="step" step="41" data-x="54400" data-y="11200"><h1 id="double-blink">Double blink</h1><p>Deux boutons activent la LED, &#xE0; <span class="i">deux fr&#xE9;quences diff&#xE9;rentes</span>.</p></div><div class="step" step="42" data-x="56000" data-y="11200"><h1 id="id6">Soluce</h1><pre class="highlight code c"><span class="c1">// TODO
+</span></pre></div><div class="step" step="43" data-x="57600" data-y="11200"><h1 id="toggle-to-shine">Toggle-to-shine</h1><p>Un premi&#xE8;re appui allume la LED, un second l'&#xE9;teint.</p></div><div class="step" step="44" data-x="59200" data-y="11200"><h1 id="id7">Soluce</h1><pre class="highlight code c"><span class="k">const</span> <span class="kt">int</span> <span class="n">PB_PIN</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// BP connect&#xE9; pin 2
+</span><span class="k">const</span> <span class="kt">int</span> <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span> <span class="c1">// onboard LED on pin 13
+</span><span class="n">boolean</span> <span class="n">ledOn</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Drapeau de l'etat de la LED
+</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Configuration des broches d'E/S
+</span>    <span class="n">pinMode</span><span class="p">(</span><span class="n">PB_PIN</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span> <span class="c1">// internal pull-up
+</span>    <span class="n">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">PB_PIN</span><span class="p">)</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// on change l'etat de la led
+</span>        <span class="n">ledOn</span> <span class="o">=</span> <span class="o">!</span><span class="n">ledOn</span><span class="p">;</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">ledOn</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></pre><p>Seulement, &#xE7;a ne marche pas tr&#xE8;s bien... pourquoi ?</p></div><div class="step" step="45" id="bouncing" data-x="60800" data-y="11200"><h1 id="anti-rebond">Anti-rebond</h1><img src="imgs/antirebond.png" alt="" width="300px" height=""></img><p>Probl&#xE8;me : comment prendre en compte seulement le premier contact ?</p></div><div class="step" step="46" data-x="62400" data-y="11200"><pre class="highlight code c"><span class="k">const</span> <span class="kt">int</span> <span class="n">PB_PIN</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// BP connect&#xE9; pin 2
+</span><span class="k">const</span> <span class="kt">int</span> <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span> <span class="c1">// onboard LED sur pin 13
+</span><span class="k">const</span> <span class="kt">int</span> <span class="n">TRANSIENT_PERIOD</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// P&#xE9;riode transitoire (ms)
+</span><span class="n">boolean</span> <span class="n">transientPeriodStarted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Drapeau "d&#xE9;but du basculement du BP"
+</span><span class="n">boolean</span> <span class="n">ledOn</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Drapeau "&#xE9;tat de la LED"
+// indicateur de traitement du basculement de bouton d&#xE9;but&#xE9;
+</span><span class="n">boolean</span> <span class="n">bPressAccepted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="c1">// Pour enregistrer le temps de demarrage du basculement
+</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">timeRef</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Configuration des broches d'E/S
+</span>    <span class="n">pinMode</span><span class="p">(</span><span class="n">PB_PIN</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span> <span class="c1">// internal pull-up
+</span>    <span class="n">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">PB_PIN</span><span class="p">)</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">transientPeriodStarted</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// si c'est le 1er passage a Zero
+</span>            <span class="n">transientPeriodStarted</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//on l'indique
+</span>            <span class="n">timeRef</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span> <span class="c1">// et on prend la ref&#xE9;rence de temps
+</span>        <span class="p">}</span>
+        <span class="c1">// si la periode du d&#xE9;lais d'attente est pass&#xE9;e
+</span>        <span class="c1">// et que le BP n'est pas encore consid&#xE9;r&#xE9; comme appuy&#xE9;
+</span>        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bPressAccepted</span> <span class="o">&amp;&amp;</span>
+            <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">timeRef</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">TRANSIENT_PERIOD</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">ledOn</span> <span class="o">=</span> <span class="o">!</span><span class="n">ledOn</span><span class="p">;</span> <span class="c1">// on change l'etat de la led
+</span>            <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">ledOn</span><span class="p">);</span>
+
+            <span class="n">bPressAccepted</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// et on enregistre l'appuis sur le BP
+</span>        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span> <span class="c1">// BP relach&#xE9; -&gt; on remet a 0 tout les indicateurs
+</span>        <span class="n">transientPeriodStarted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">bPressAccepted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span></pre></div><div class="step" step="47" data-x="64000" data-y="11200"><h1 id="plus-simple">Plus simple ?</h1><p>Le code est lourd non ?</p><p>Il doit y avoir plus simple...</p></div><div class="step" step="48" data-y="12800" data-x="64000"><h1 id="interruptions">Interruptions</h1></div><div class="step" step="49" data-y="12800" data-x="65600"><h1 id="id8">Concept</h1><ul><li>Permet de prendre en compte imm&#xE9;diatement un &#xE9;v&#xE8;nement.</li><li>On <span class="i">attache</span> une routine d'interruption &#xE0; une entr&#xE9;e...</li><li>Sur Arduino, on a le choix entre les entr&#xE9;es 2 et 3 : on les appelle 0 et 1...</li><li>On utilise la fonction <tt>attachInterrupt(pin, routine, mode)</tt></li><li>4 modes diff&#xE9;rents :<blockquote><ul><li><tt>LOW</tt></li><li><tt>CHANGE</tt> : trig. &#xE0; chaque changement de niveau</li><li><tt>RISING</tt> : trig. sur front montant</li><li><tt>FALLING</tt> : trig. sur front descendant</li></ul></blockquote></li><li>on ne peut utiliser <span class="i">que des variables volatile</span></li></ul></div><div class="step" step="50" data-x="67200" data-y="12800"><h1 id="interruptions-exemple">Interruptions : Exemple</h1><pre class="highlight code c"><span class="kt">int</span> <span class="n">pin</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="k">volatile</span> <span class="kt">int</span> <span class="n">state</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">attachInterrupt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">blink</span><span class="p">,</span> <span class="n">CHANGE</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">state</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">blink</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="o">!</span><span class="n">state</span><span class="p">;</span>
+<span class="p">}</span></pre><p>Simple non?</p></div></div><div id="hovercraft-help" class="hide"><table><tr><th>Space</th><td>Forward</td></tr><tr><th>Right, Down, Page Down</th><td>Next slide</td></tr><tr><th>Left, Up, Page Up</th><td>Previous slide</td></tr><tr><th>P</th><td>Open presenter console</td></tr><tr><th>H</th><td>Toggle this help</td></tr></table></div><script type="text/javascript" src="js/impress.js"></script><script type="text/javascript" src="js/impressConsole.js"></script><script type="text/javascript" src="js/hovercraft.js"></script></body></html>
