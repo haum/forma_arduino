@@ -513,3 +513,255 @@ On (en)chaine !
         // truc C
     }
 
+----
+
+:data-y: r1600
+:data-x: r0
+
+Entrées numériques
+==================
+
+(*digital* chez les anglais...)
+
+----
+
+:data-y: r0
+:data-x: r1600
+:id: pullup
+
+Généralités
+===========
+
+- mêmes ports que les sorties numériques
+- choix de la "fonction" entrée avec ``pinMode`` et ``INPUT``
+- l'entrée à deux niveaux : ``HIGH`` et ``LOW``
+
+INPUT_PULLUP ?
+==============
+
+.. image:: imgs/pullup.png
+    :width: 200px
+
+Permet de mettre une entrée au niveau :i:`haut` si l'interrupteur est **ouvert** !
+
+Sur Arduino la résistance de :i:`pull-up est interne`. Sur certains microcontrôlleurs, on peut aussi choisir d'activer un
+pull-down.
+
+----
+
+Exemples
+========
+
+.. code:: c
+
+    void setup() {
+        pinMode(5,INPUT); // input standard
+
+        pinMode(6, INPUT_PULLUP); // entrée "tirée"
+    }
+
+----
+
+Push-to-blink
+=============
+
+La LED clignote **si** le bouton est enfoncé !
+
+----
+
+Soluce
+======
+
+.. code:: c
+
+    #define BP 2 // bp sur l'entrée 2
+    #define TEMPS 250
+     
+    void setup() {
+        pinMode(LED_BUILTIN, OUTPUT);
+        pinMode(BP, INPUT_PULLUP);
+    }
+     
+    void loop() {
+        if (!digitalRead(BP)) {
+            blink(TEMPS);
+        }
+    }
+     
+    void blink(int temps) {
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(temps);
+        digitalWrite(LED_BUILTIN, LOW);
+        delay(temps);
+    }
+
+----
+
+Double blink
+============
+
+Deux boutons activent la LED, à :i:`deux fréquences différentes`.
+
+----
+
+Soluce
+======
+
+.. code:: c
+
+    // TODO
+
+----
+
+Toggle-to-shine
+===============
+
+Un première appui allume la LED, un second l'éteint.
+
+----
+
+Soluce
+======
+
+.. code:: c
+
+    const int PB_PIN = 2; // BP connecté pin 2 
+    const int LED_PIN = 13; // onboard LED on pin 13
+    boolean ledOn = false; // Drapeau de l'etat de la LED
+     
+    void setup() {
+        // Configuration des broches d'E/S
+        pinMode(PB_PIN, INPUT_PULLUP); // internal pull-up
+        pinMode(LED_PIN, OUTPUT);
+    }
+     
+    void loop()
+    {
+        if (digitalRead(PB_PIN) == LOW) {
+            // on change l'etat de la led
+            ledOn = !ledOn;
+            digitalWrite(LED_PIN, ledOn);
+        }
+    }
+
+
+Seulement, ça ne marche pas très bien... pourquoi ?
+
+----
+
+:id: bouncing
+
+Anti-rebond
+===========
+
+.. image:: imgs/antirebond.png
+    :width: 300px
+
+Problème : comment prendre en compte seulement le premier contact ?
+
+----
+
+.. code:: c
+
+    const int PB_PIN = 2; // BP connecté pin 2
+    const int LED_PIN = 13; // onboard LED sur pin 13
+    const int TRANSIENT_PERIOD = 10; // Période transitoire (ms) 
+    boolean transientPeriodStarted = false; // Drapeau "début du basculement du BP"
+    boolean ledOn = false; // Drapeau "état de la LED"
+    // indicateur de traitement du basculement de bouton débuté
+    boolean bPressAccepted = false;
+    // Pour enregistrer le temps de demarrage du basculement
+    unsigned long timeRef = 0;
+
+    void setup() {
+        // Configuration des broches d'E/S
+        pinMode(PB_PIN, INPUT_PULLUP); // internal pull-up
+        pinMode(LED_PIN, OUTPUT);
+    }
+
+    void loop() {
+        if (digitalRead(PB_PIN) == LOW) {
+            if (!transientPeriodStarted) { // si c'est le 1er passage a Zero
+                transientPeriodStarted = true; //on l'indique
+                timeRef = millis(); // et on prend la reférence de temps
+            }
+            // si la periode du délais d'attente est passée
+            // et que le BP n'est pas encore considéré comme appuyé
+            else if (!bPressAccepted &&
+                (unsigned long)(millis() - timeRef) > TRANSIENT_PERIOD) {
+                ledOn = !ledOn; // on change l'etat de la led
+                digitalWrite(LED_PIN, ledOn);
+
+                bPressAccepted = true; // et on enregistre l'appuis sur le BP
+            }
+        }
+        else { // BP relaché -> on remet a 0 tout les indicateurs
+            transientPeriodStarted = false;
+            bPressAccepted = false;
+        }
+    }
+
+
+----
+
+Plus simple ?
+=============
+
+Le code est lourd non ?
+
+Il doit y avoir plus simple...
+
+----
+
+:data-y: r1600
+:data-x: r0
+
+Interruptions
+=============
+
+----
+
+:data-y: r0
+:data-x: r1600
+
+Concept
+=======
+
+- Permet de prendre en compte immédiatement un évènement.
+- On :i:`attache` une routine d'interruption à une entrée...
+- Sur Arduino, on a le choix entre les entrées 2 et 3 : on les appelle 0 et 1...
+- On utilise la fonction ``attachInterrupt(pin, routine, mode)``
+- 4 modes différents :
+
+    - ``LOW``
+    - ``CHANGE`` : trig. à chaque changement de niveau
+    - ``RISING`` : trig. sur front montant
+    - ``FALLING`` : trig. sur front descendant
+
+- on ne peut utiliser :i:`que des variables volatile`
+
+----
+
+Interruptions : Exemple
+=======================
+
+.. code:: c
+
+    int pin = 13;
+    volatile int state = LOW;
+
+    void setup() {
+        pinMode(pin, OUTPUT);
+        attachInterrupt(0, blink, CHANGE);
+    }
+
+    void loop() {
+        digitalWrite(pin, state);
+    }
+
+    void blink() {
+        state = !state;
+    }
+
+Simple non?
+
