@@ -787,6 +787,12 @@ Concept
 
 - on ne peut utiliser :i:`que des variables volatile`
 
+.. note::
+
+    "Les variables partagées entre les fonction standard et les ISR (Routine de service d'interruption) doivent être
+    déclarées "volatile". Cela explique au compilateur que ce genre de variable peut changer à tout moment et qu'il
+    doit la recharger à chaque fois quelle est référencée, plutot que de se contenter d'une copie trouvée dans un registre processeur."
+
 ----
 
 Interruptions : Exemple
