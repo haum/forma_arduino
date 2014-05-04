@@ -50,6 +50,9 @@ Partie 1 : Bases !
 
 ----
 
+:data-y: r1600
+:data-x: r0
+
 :id: sect_structure
 
 Structure d'un programme
@@ -58,6 +61,9 @@ Structure d'un programme
 Depuis la version 1 : programmes en ``.ino``
 
 ----
+
+:data-y: r0
+:data-x: r1600
 
 # Déclarations
 ==============
