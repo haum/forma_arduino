@@ -41,7 +41,7 @@ IDE web
 
 http://codebender.cc
 
-juste un plug-in a installer dans son navigateur
+Juste un plug-in à installer dans son navigateur (FF & Chrome/Chromium)
 
 ----
 
@@ -417,7 +417,7 @@ Concept
 Variables et fonctions
 ======================
 
-- les variables définies dans les fonctions ne sont accessible :i:`que dedans`
+- les variables définies dans les fonctions ne sont accessibles :i:`que dedans`
 - les variables définies en dehors de toute fonction sont accessibles :i:`partout`
 
 ----
@@ -427,10 +427,12 @@ Syntaxe générale
 
 .. code:: c
 
+    // pseudo-code
     <type de retour> nom_de_la_fonction (type1, param1, etc...) {
         // code
     }
 
+    // exemples...
     // pour une procédure (sans retour)
     void fonction() {
         // code
