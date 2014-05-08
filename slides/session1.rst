@@ -625,18 +625,18 @@ Solution
 
     #define BP 2 // bp sur l'entrée 2
     #define TEMPS 250
-     
+
     void setup() {
         pinMode(LED_BUILTIN, OUTPUT);
         pinMode(BP, INPUT_PULLUP);
     }
-     
+
     void loop() {
         if (!digitalRead(BP)) {
             blink(TEMPS);
         }
     }
-     
+
     void blink(int temps) {
         digitalWrite(LED_BUILTIN, HIGH);
         delay(temps);
@@ -658,7 +658,38 @@ Solution
 
 .. code:: c
 
-    // TODO
+    #define BP_R 2 // bp rapide sur l'entrée 2
+    #define BP_L 3 // bp rapide sur l'entrée 3
+    #define TEMPS 250
+    #define TEMPS_LONG 1000
+
+    void setup()
+    {
+        pinMode(LED_BUILTIN, OUTPUT);
+        pinMode(BP_R, INPUT_PULLUP);
+        pinMode(BP_L, INPUT_PULLUP);
+    }
+
+    void loop()
+    {
+        if (!(digitalRead(BP_R)&digitalRead(BP_L)))
+        {
+            if (!digitalRead(BP_L)){
+            blink(TEMPS);
+        } else {
+            blink(TEMPS_LONG);
+        }
+        }
+    }
+
+
+    void blink(int temps)
+    {
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(temps);
+        digitalWrite(LED_BUILTIN, LOW);
+        delay(temps);
+    }
 
 ----
 
@@ -674,16 +705,16 @@ Solution
 
 .. code:: c
 
-    const int PB_PIN = 2; // BP connecté pin 2 
+    const int PB_PIN = 2; // BP connecté pin 2
     const int LED_PIN = 13; // onboard LED on pin 13
     boolean ledOn = false; // Drapeau de l'etat de la LED
-     
+
     void setup() {
         // Configuration des broches d'E/S
         pinMode(PB_PIN, INPUT_PULLUP); // internal pull-up
         pinMode(LED_PIN, OUTPUT);
     }
-     
+
     void loop()
     {
         if (digitalRead(PB_PIN) == LOW) {
@@ -714,7 +745,7 @@ Problème : comment prendre en compte seulement le premier contact ?
 
     const int PB_PIN = 2; // BP connecté pin 2
     const int LED_PIN = 13; // onboard LED sur pin 13
-    const int TRANSIENT_PERIOD = 10; // Période transitoire (ms) 
+    const int TRANSIENT_PERIOD = 10; // Période transitoire (ms)
     boolean transientPeriodStarted = false; // Drapeau "début du basculement du BP"
     boolean ledOn = false; // Drapeau "état de la LED"
     // indicateur de traitement du basculement de bouton débuté
@@ -753,70 +784,35 @@ Problème : comment prendre en compte seulement le premier contact ?
 
 ----
 
-Plus simple ?
-=============
+:id: hardw_bouncing
+
+Antirebond matériel
+===================
+
+.. image:: imgs/antirebond_condo.png
+    :width: 250px
 
 Le code est lourd non ?
 
-Il doit y avoir plus simple...
+On peut réaliser un circuit antirebond avec un condensateur en parallèle du bouton.
+
 
 ----
 
 :data-y: r1600
 :data-x: r0
 
-Interruptions
-=============
+Entrées/Sorties Analogiques
+===========================
 
 ----
 
 :data-y: r0
 :data-x: r1600
 
-Concept
-=======
+Sortie PWM
+==========
 
-- Permet de prendre en compte immédiatement un évènement.
-- On :i:`attache` une routine d'interruption à une entrée...
-- Sur Arduino, on a le choix entre les entrées 2 et 3 : on les appelle 0 et 1...
-- On utilise la fonction ``attachInterrupt(pin, routine, mode)``
-- 4 modes différents :
+:i:`PWM` : *Pulse Width Modulation*, permet de choisir un "taux" d'allumage et d'extinction
 
-    - ``LOW``
-    - ``CHANGE`` : trig. à chaque changement de niveau
-    - ``RISING`` : trig. sur front montant
-    - ``FALLING`` : trig. sur front descendant
-
-- on ne peut utiliser :i:`que des variables volatile`
-
-.. note::
-
-    "Les variables partagées entre les fonction standard et les ISR (Routine de service d'interruption) doivent être
-    déclarées "volatile". Cela explique au compilateur que ce genre de variable peut changer à tout moment et qu'il
-    doit la recharger à chaque fois quelle est référencée, plutot que de se contenter d'une copie trouvée dans un registre processeur."
-
-----
-
-Interruptions : Exemple
-=======================
-
-.. code:: c
-
-    int pin = 13;
-    volatile int state = LOW;
-
-    void setup() {
-        pinMode(pin, OUTPUT);
-        attachInterrupt(0, blink, CHANGE);
-    }
-
-    void loop() {
-        digitalWrite(pin, state);
-    }
-
-    void blink() {
-        state = !state;
-    }
-
-Simple non?
 
