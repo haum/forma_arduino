@@ -799,6 +799,36 @@ On peut réaliser un circuit antirebond avec un condensateur en parallèle du bo
 
 ----
 
+E/S analogiques
+===============
+
+----
+
+Sorties
+
+PWM : sortie analogique
+Pas sur toutes les sorties, variable en fonction des models d'arduino
+
+pas vrai analogique mais PWM
+
+fonction analogWrite()
+
+exemlpe de code heartbeat
+
+----
+
+entrées
+
+que quelques entrées
+
+value = analogRead();
+valeur de 0 a 1024
+
+
+----
+
+
+
 :data-y: r1600
 :data-x: r0
 
