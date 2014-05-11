@@ -59,12 +59,11 @@ blockquote {
 
 
 /* Particularité sur slides */
-#pullup img {
+#thanks { text-align: center}
+
+#thanks img, #quantif img, #pwm img, #bouncing img, #hardw_bouncing img, #pullup img {
     float:right;
     padding-left: 20px;
 }
 
-#bouncing img {
-    float:right;
-    padding-left: 20px;
-}
+
