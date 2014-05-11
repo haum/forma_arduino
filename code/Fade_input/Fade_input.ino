@@ -18,7 +18,6 @@ void setup()
 {
 	// declare pin 9 to be an output:
 	pinMode(led, OUTPUT);
-	Serial.begin(115200);
 }
 
 void loop()
@@ -26,7 +25,6 @@ void loop()
 	int max_brightness = map (analogRead(A0), 0, 1024, 2, 255);
 	// on place la valeur d'intensitée
 	analogWrite(led, brightness);
-	Serial.println(max_brightness);
 	// on change la valeur pour la prochaine foi
 	brightness = brightness + fadeAmount;
 
@@ -36,6 +34,6 @@ void loop()
 		fadeAmount = -fadeAmount ;
 	}
 	// petite pose
-	delay(6*255/max_brightness);
+	delay(6 * 255 / max_brightness);
 }
 
