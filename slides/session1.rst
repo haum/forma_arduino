@@ -735,7 +735,7 @@ Anti-rebond
 ===========
 
 .. image:: imgs/antirebond.png
-    :width: 300px
+    :width: 500px
 
 Problème : comment prendre en compte seulement le premier contact ?
 
