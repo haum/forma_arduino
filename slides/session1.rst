@@ -696,7 +696,7 @@ Solution
 Toggle-to-shine
 ===============
 
-Un première appui allume la LED, un second l'éteint.
+Un premièr appui allume la LED, un second l'éteint.
 
 ----
 
