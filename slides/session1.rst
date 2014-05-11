@@ -799,34 +799,6 @@ On peut réaliser un circuit antirebond avec un condensateur en parallèle du bo
 
 ----
 
-E/S analogiques
-===============
-
-----
-
-Sorties
-
-PWM : sortie analogique
-Pas sur toutes les sorties, variable en fonction des models d'arduino
-
-pas vrai analogique mais PWM
-
-fonction analogWrite()
-
-exemlpe de code heartbeat
-
-----
-
-entrées
-
-que quelques entrées
-
-value = analogRead();
-valeur de 0 a 1024
-
-
-----
-
 
 
 :data-y: r1600
@@ -837,12 +809,320 @@ Entrées/Sorties Analogiques
 
 ----
 
+:id: pwm
+
 :data-y: r0
 :data-x: r1600
 
 Sortie PWM
 ==========
 
+.. image:: imgs/pwm.png
+    :width: 300px
+
 :i:`PWM` : *Pulse Width Modulation*, permet de choisir un "taux" d'allumage et d'extinction
 
+.. code:: c
 
+    analogWrite(pin, duty_cycle)
+
+Permet de moduler l'énergie moyenne disponible en sortie (le signal n'est pas sinusoïdal)...
+
+----
+
+HeartBeat
+=========
+
+Allumer puis éteindre la led progressivement
+
+----
+
+Solution
+========
+
+.. code:: c
+
+    int led = 9; // pin de la LED, doit etre une pin qui permet le pwm
+    int brightness = 0; // intensitée de la LED
+    int fadeAmount = 1; // graduation de changement
+
+    // the setup routine runs once when you press reset:
+    void setup() {
+        // declare pin 9 to be an output:
+        pinMode(led, OUTPUT);
+    }
+
+    void loop() {
+        // on place la valeur d'intensitée
+        analogWrite(led, brightness);
+
+        // on change la valeur pour la prochaine foi
+        brightness = brightness + fadeAmount;
+
+        // si on est a un mini ou un max on change le signe de la graduation
+        if (brightness == 0 || brightness == 255) {
+            fadeAmount = -fadeAmount ;
+        }
+        // petite pose
+        delay(6);
+    }
+
+----
+
+:id: quantif
+
+Entrée analogique
+=================
+
+.. image:: imgs/quantif.png
+    :width: 300px
+
+Les entrées analogiques sont repérée A0 à A5 sur l'Arduino (Uno).
+
+Pas besoin de  ``pinMode`` pour elles, seulement :
+
+.. code:: c
+
+    int lecture = analogRead(pin); // pin 0 -> 5
+
+La conversion analogique-numérique est sur :i:`10 bits`, la valeur renvoyée va donc de 0 à 1023.
+
+----
+
+
+Map
+===
+
+Pour convertir la valeur renvoyée par ``analogRead`` en valeur entre 0 et 255 (8 bits), on peut utiliser ``map()``:
+
+.. code:: c
+
+    map(val_a_convertir, bas_avant, haut_avant, bas_apres, haut_apres);
+
+    // bas_avant, haut_avant : bornes de l'échelle avant conversion
+    // bas_apres, haut_apres : bornes de l'échelle après conversion
+
+Ainsi, on peut obtenir des valeurs prêtes à être passées à ``analogWrite`` (par exemple...)
+
+----
+
+Heartbeat... bridé
+==================
+
+Un potentiomètre permet de règler l'intensité maximale
+
+----
+
+Solution
+========
+
+.. code:: c
+
+    int led = 9;           // pin de la LED, doit etre une pin qui permet le pwm
+    int brightness = 0;    // intensitée de la LED
+    int fadeAmount = 1;    // graduation de changement
+
+    // the setup routine runs once when you press reset:
+    void setup() {
+        // declare pin 9 to be an output:
+        pinMode(led, OUTPUT);
+    }
+    void loop() {
+        int max_brightness = map (analogRead(A0), 0, 1024, 2,   255);
+
+        // on place la valeur d'intensitée
+        analogWrite(led, brightnessss);
+
+        // on change la valeur pour la prochaine fois
+        brightness = brightnessssness + fadeAmount;
+
+        // si on est déjà au dessus du max, on se ramène au max.
+        if (brightness > max_brightness) {
+            brightness = maximaleax_brightness;
+        }
+
+        // si on est a un mini ou un max on change le signe de la graduation
+        if (brightness == 0 || brightness >= max_brightness)max_brightness{
+            fadeAmount = -fadeAmount ;
+        }
+        // petite pose
+        delay(6 * 255 / maisx_brightness);
+    }
+
+
+----
+
+:data-y: r1600
+:data-x: r0
+
+Liaison Série
+=============
+
+----
+
+:data-y: r0
+:data-x: r1600
+
+Let's start
+===========
+
+L'arduino peut discuter avec d'autres équipements (d'autres arduinos, certains objets, un ordinateur,...) grace à sa
+:i:`liaison série`.
+
+Pour l'utiliser, il faut d'abord l'initialiser :
+
+.. code:: c
+
+    void setup() {
+        // ....
+
+        Serial.begin(vitesse);
+    }
+
+La vitesse spécifiée est la vitesse de transmission (en bauds |---| symboles par seconde).
+
+Pour les vitesses on a le choix : 9600, 19200, 28800, 38400, 57600, 115200, etc...
+
+
+----
+
+Fonctions utiles
+================
+
+Serial.available()
+------------------
+
+Permet de savoir s'il y a des symboles dans le tampon d'entrée (taille maxi: 128 caractères).
+
+Serial.read()
+-------------
+
+Renvoie le premier caractère dans le tampon d'entrée sous la forme d'un entier ou -1 si le tampon est vide.
+
+Serial.print()
+--------------
+
+.. code:: c
+
+    Serial.print(data);
+    Serial.print(data, format);
+
+Dans le premier cas, Serial gère le format elle-même :
+
+- un entier est affiché comme nombre décimal ;
+- un flottant (type ``float``) est affiché avec 2 décimale ;
+- une chaine est affichée... comme une chaine.
+
+Pour le deuxième cas, voyons quelques exemples...
+
+
+----
+
+Fonctions utiles
+================
+
+Serial.print()
+--------------
+
+.. code:: c
+
+    Serial.print(75, DEC);  // affiche 75
+    Serial.print(75, BIN);  // affiche 100101
+    Serial.print(75, HEX);  // affiche 4B
+    Serial.print(75, BYTE); // affiche K (code ascii: 75)
+
+
+:i:`Attention` : la représentation ASCII (lisible) est différente de la valeur de ce qu'on y lit... 0 DEC -> 48 ASCII...
+
+----
+
+Exemple
+=======
+
+On veut pouvoir allumer changer l'état de deux LED en envoyant des codes sur la liaison série :
+
+- 'A' pour la première
+- 'B' pour la seconde
+
+.. code:: c
+
+    // A pour la led pin 9
+    // B pour la led pin 13
+
+    #define LED1 9
+    #define LED2 13
+    boolean led1 = false;
+    boolean led2 = false;
+
+    void setup() {
+        pinMode(LED1, OUTPUT);
+        pinMode(LED2, OUTPUT);
+        Serial.begin(9600);
+        while (!Serial) {
+            ; // wait for serial port to connect. Needed for Leonardo only
+        }
+        Serial.println("La liason serie sur arduino");
+    }
+
+    void loop() {
+
+        // si il y a quelque chose sur la liason serie, le lire:
+        while (Serial.available() > 0) {
+
+            int intRep = Serial.read();
+            char charRep = char(intRep);
+
+            if (charRep == 'A') {
+                led1 = !led1;
+                digitalWrite(LED1, led1);
+            }
+
+            if (charRep == 'B') {
+                led2 = !led2;
+                digitalWrite(LED2, led2);
+            }
+        }
+    }
+
+----
+
+:data-y: r1600
+:data-x: r0
+
+Vous en voulez encore ?
+=======================
+
+----
+
+:data-y: r0
+:data-x: r1600
+
+Exos possibles
+==============
+
+- faites afficher la valeur du potentiomètre du deuxième heartbeat sur la liaison série
+- controlez la vitesse et l'intensité du heartbeat via des codes sur la liaison série
+- programmez d'autre modes pour vos deux led (par exemple l'encodage en morse de ce qui arrive sur la liaison série...
+  long: 2 LED, court: 1 LED).
+- etc...
+
+----
+
+:id: thanks
+
+:data-y: r1600
+:data-x: r0
+
+.. image:: imgs/haum.png
+    :width: 200px
+
+Merci beaucoup !
+================
+
+arduino.cc
+----------
+
+haum.org
+--------
+
+Jérome (jblb), Mathieu (matael), le HAUM pour Beelab et La Ruche Numérique
