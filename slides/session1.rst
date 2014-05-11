@@ -89,7 +89,7 @@ setup()
 
 Initialisation du programme
 
-- déclaration des entrée/sorties (E/S)
+- déclaration des entrées/sorties (E/S)
 - interruptions
 - variables globales
 - tout pour mettre en marche...
@@ -161,7 +161,7 @@ pinMode()
 
 Une broche peut être en entrée ou sortie...
 
-il faut choisir au démarrage du programme (``setup()``)
+Il faut choisir au démarrage du programme (``setup()``)
 
 .. code:: c
 
@@ -202,7 +202,7 @@ Allumer une LED
 
 .. note::
 
-    lancer un bout d'exo pour allumer la LED
+    Lancer un bout d'exo pour allumer la LED
 
 ----
 
@@ -549,7 +549,7 @@ Et sinon ?
 
 ----
 
-On (en)chaine !
+On (en)chaîne !
 ===============
 
 .. code:: c
@@ -659,7 +659,7 @@ Solution
 .. code:: c
 
     #define BP_R 2 // bp rapide sur l'entrée 2
-    #define BP_L 3 // bp rapide sur l'entrée 3
+    #define BP_L 3 // bp lent sur l'entrée 3
     #define TEMPS 250
     #define TEMPS_LONG 1000
 
@@ -707,7 +707,7 @@ Solution
 
     const int PB_PIN = 2; // BP connecté pin 2
     const int LED_PIN = 13; // onboard LED on pin 13
-    boolean ledOn = false; // Drapeau de l'etat de la LED
+    boolean ledOn = false; // Drapeau de l’état de la LED
 
     void setup() {
         // Configuration des broches d'E/S
@@ -750,7 +750,7 @@ Problème : comment prendre en compte seulement le premier contact ?
     boolean ledOn = false; // Drapeau "état de la LED"
     // indicateur de traitement du basculement de bouton débuté
     boolean bPressAccepted = false;
-    // Pour enregistrer le temps de demarrage du basculement
+    // Pour enregistrer le temps de démarrage du basculement
     unsigned long timeRef = 0;
 
     void setup() {
@@ -761,21 +761,21 @@ Problème : comment prendre en compte seulement le premier contact ?
 
     void loop() {
         if (digitalRead(PB_PIN) == LOW) {
-            if (!transientPeriodStarted) { // si c'est le 1er passage a Zero
+            if (!transientPeriodStarted) { // si c'est le 1er passage à zéro
                 transientPeriodStarted = true; //on l'indique
                 timeRef = millis(); // et on prend la reférence de temps
             }
-            // si la periode du délais d'attente est passée
+            // si la période du délai d'attente est passée
             // et que le BP n'est pas encore considéré comme appuyé
             else if (!bPressAccepted &&
                 (unsigned long)(millis() - timeRef) > TRANSIENT_PERIOD) {
-                ledOn = !ledOn; // on change l'etat de la led
+                ledOn = !ledOn; // on change l'état de la led
                 digitalWrite(LED_PIN, ledOn);
 
-                bPressAccepted = true; // et on enregistre l'appuis sur le BP
+                bPressAccepted = true; // et on enregistre l'appui sur le BP
             }
         }
-        else { // BP relaché -> on remet a 0 tout les indicateurs
+        else { // BP relâché -> on remet à 0 tous les indicateurs
             transientPeriodStarted = false;
             bPressAccepted = false;
         }
@@ -842,8 +842,8 @@ Solution
 
 .. code:: c
 
-    int led = 9; // pin de la LED, doit etre une pin qui permet le pwm
-    int brightness = 0; // intensitée de la LED
+    int led = 9; // pin de la LED, doit être une pin qui permet le pwm
+    int brightness = 0; // intensité de la LED
     int fadeAmount = 1; // graduation de changement
 
     // the setup routine runs once when you press reset:
@@ -853,17 +853,17 @@ Solution
     }
 
     void loop() {
-        // on place la valeur d'intensitée
+        // on place la valeur d'intensité
         analogWrite(led, brightness);
 
-        // on change la valeur pour la prochaine foi
+        // on change la valeur pour la prochaine fois
         brightness = brightness + fadeAmount;
 
-        // si on est a un mini ou un max on change le signe de la graduation
+        // si on est à un mini ou un max on change le signe de la graduation
         if (brightness == 0 || brightness == 255) {
             fadeAmount = -fadeAmount ;
         }
-        // petite pose
+        // petite pause
         delay(6);
     }
 
@@ -877,7 +877,7 @@ Entrée analogique
 .. image:: imgs/quantif.png
     :width: 300px
 
-Les entrées analogiques sont repérée A0 à A5 sur l'Arduino (Uno).
+Les entrées analogiques sont repérées de A0 à A5 sur l'Arduino (Uno).
 
 Pas besoin de  ``pinMode`` pour elles, seulement :
 
@@ -909,7 +909,7 @@ Ainsi, on peut obtenir des valeurs prêtes à être passées à ``analogWrite`` 
 Heartbeat... bridé
 ==================
 
-Un potentiomètre permet de règler l'intensité maximale
+Un potentiomètre permet de régler l'intensité maximale
 
 ----
 
@@ -918,8 +918,8 @@ Solution
 
 .. code:: c
 
-    int led = 9;           // pin de la LED, doit etre une pin qui permet le pwm
-    int brightness = 0;    // intensitée de la LED
+    int led = 9;           // pin de la LED, doit être une pin qui permet le pwm
+    int brightness = 0;    // intensité de la LED
     int fadeAmount = 1;    // graduation de changement
 
     // the setup routine runs once when you press reset:
@@ -930,7 +930,7 @@ Solution
     void loop() {
         int max_brightness = map (analogRead(A0), 0, 1024, 2,   255);
 
-        // on place la valeur d'intensitée
+        // on place la valeur d'intensité
         analogWrite(led, brightnessss);
 
         // on change la valeur pour la prochaine fois
@@ -941,11 +941,11 @@ Solution
             brightness = maximaleax_brightness;
         }
 
-        // si on est a un mini ou un max on change le signe de la graduation
+        // si on est à un mini ou un max on change le signe de la graduation
         if (brightness == 0 || brightness >= max_brightness)max_brightness{
             fadeAmount = -fadeAmount ;
         }
-        // petite pose
+        // petite pause
         delay(6 * 255 / maisx_brightness);
     }
 
@@ -966,7 +966,7 @@ Liaison Série
 Let's start
 ===========
 
-L'arduino peut discuter avec d'autres équipements (d'autres arduinos, certains objets, un ordinateur,...) grace à sa
+L'arduino peut discuter avec d'autres équipements (d'autres arduinos, certains objets, un ordinateur,...) grâce à sa
 :i:`liaison série`.
 
 Pour l'utiliser, il faut d'abord l'initialiser :
@@ -1010,8 +1010,8 @@ Serial.print()
 Dans le premier cas, Serial gère le format elle-même :
 
 - un entier est affiché comme nombre décimal ;
-- un flottant (type ``float``) est affiché avec 2 décimale ;
-- une chaine est affichée... comme une chaine.
+- un flottant (type ``float``) est affiché avec 2 décimales ;
+- une chaîne est affichée... comme une chaîne.
 
 Pour le deuxième cas, voyons quelques exemples...
 
@@ -1039,7 +1039,7 @@ Serial.print()
 Exemple
 =======
 
-On veut pouvoir allumer changer l'état de deux LED en envoyant des codes sur la liaison série :
+On veut pouvoir changer l'état de deux LED en envoyant des codes sur la liaison série :
 
 - 'A' pour la première
 - 'B' pour la seconde
@@ -1061,12 +1061,12 @@ On veut pouvoir allumer changer l'état de deux LED en envoyant des codes sur la
         while (!Serial) {
             ; // wait for serial port to connect. Needed for Leonardo only
         }
-        Serial.println("La liason serie sur arduino");
+        Serial.println("La liaison série sur arduino");
     }
 
     void loop() {
 
-        // si il y a quelque chose sur la liason serie, le lire:
+        // s'il y a quelque chose sur la liason série, le lire:
         while (Serial.available() > 0) {
 
             int intRep = Serial.read();
@@ -1101,8 +1101,8 @@ Exos possibles
 ==============
 
 - faites afficher la valeur du potentiomètre du deuxième heartbeat sur la liaison série
-- controlez la vitesse et l'intensité du heartbeat via des codes sur la liaison série
-- programmez d'autre modes pour vos deux led (par exemple l'encodage en morse de ce qui arrive sur la liaison série...
+- contrôlez la vitesse et l'intensité du heartbeat via des codes sur la liaison série
+- programmez d'autres modes pour vos deux led (par exemple l'encodage en morse de ce qui arrive sur la liaison série...
   long: 2 LED, court: 1 LED).
 - etc...
 
