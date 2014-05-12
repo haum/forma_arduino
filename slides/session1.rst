@@ -428,7 +428,7 @@ Syntaxe générale
 .. code:: c
 
     // pseudo-code
-    <type de retour> nom_de_la_fonction (type1, param1, etc...) {
+    <type de retour> nom_de_la_fonction (type1 param1, etc...) {
         // code
     }
 

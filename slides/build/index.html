@@ -3,7 +3,7 @@
 </span><span class="cp">#include &lt;DmxSimple.h&gt;  </span><span class="c1">// lib
 </span></pre><ul><li>&#xE9;valu&#xE9;es &#xE0; la compilation (et remplac&#xE9;s)</li></ul></div><div class="step" step="7" data-x="9600" data-y="1600"><h1 id="setup">setup()</h1><pre class="highlight code c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// init ....
-</span><span class="p">}</span></pre><p>Initialisation du programme</p><ul><li>d&#xE9;claration des entr&#xE9;e/sorties (E/S)</li><li>interruptions</li><li>variables globales</li><li>tout pour mettre en marche...</li></ul></div><div class="step" step="8" data-x="11200" data-y="1600"><h1 id="loop">loop()</h1><pre class="highlight code c"><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="p">}</span></pre><p>Initialisation du programme</p><ul><li>d&#xE9;claration des entr&#xE9;es/sorties (E/S)</li><li>interruptions</li><li>variables globales</li><li>tout pour mettre en marche...</li></ul></div><div class="step" step="8" data-x="11200" data-y="1600"><h1 id="loop">loop()</h1><pre class="highlight code c"><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// init ....
 </span><span class="p">}</span></pre><p>Le programme en lui m&#xEA;me : fonction principale.</p><p>Elle boucle ind&#xE9;finiment....</p><pre class="highlight ">Pour toujours...
     loop()</pre></div><div class="step" step="9" data-x="12800" data-y="1600"><h1 id="premier-programme">Premier programme</h1><pre class="highlight code c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -12,11 +12,11 @@
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// programme...
-</span><span class="p">}</span></pre><p>Un programme (inutile mais) fonctionnel...</p></div><div class="step" step="10" id="sect_sorties_num" data-y="3200" data-x="12800"><h1 id="entrees-et-sorties-numeriques">Entr&#xE9;es et Sorties Num&#xE9;riques</h1><img src="imgs/sorties_num/entre_sorties.png" alt="" width="600px" height=""></img></div><div class="step" step="11" data-x="12800" data-y="4800"><h1 id="sorties-numeriques">Sorties Num&#xE9;riques</h1><img src="imgs/sorties_num/carte_arduino.png" alt="" width="600px" height=""></img></div><div class="step" step="12" data-y="4800" data-x="14400"><h1 id="pinmode">pinMode()</h1><p>Une broche peut &#xEA;tre en entr&#xE9;e ou sortie...</p><p>il faut choisir au d&#xE9;marrage du programme (<tt>setup()</tt>)</p><pre class="highlight code c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="p">}</span></pre><p>Un programme (inutile mais) fonctionnel...</p></div><div class="step" step="10" id="sect_sorties_num" data-y="3200" data-x="12800"><h1 id="entrees-et-sorties-numeriques">Entr&#xE9;es et Sorties Num&#xE9;riques</h1><img src="imgs/sorties_num/entre_sorties.png" alt="" width="600px" height=""></img></div><div class="step" step="11" data-x="12800" data-y="4800"><h1 id="sorties-numeriques">Sorties Num&#xE9;riques</h1><img src="imgs/sorties_num/carte_arduino.png" alt="" width="600px" height=""></img></div><div class="step" step="12" data-y="4800" data-x="14400"><h1 id="pinmode">pinMode()</h1><p>Une broche peut &#xEA;tre en entr&#xE9;e ou sortie...</p><p>Il faut choisir au d&#xE9;marrage du programme (<tt>setup()</tt>)</p><pre class="highlight code c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{}</span></pre></div><div class="step" step="13" data-x="16000" data-y="4800"><h1 id="constantes">Constantes</h1><p>Arduino propose des constantes</p><ul><li>modes<blockquote><ul><li><tt>OUTPUT</tt></li><li><tt>INPUT</tt></li><li><tt>INPUT_PULLUP</tt></li></ul></blockquote></li><li>niveaux<blockquote><ul><li><tt>HIGH</tt></li><li><tt>LOW</tt></li></ul></blockquote></li><li>des raccourcis...<blockquote><ul><li><tt>LED_BUILTIN</tt></li><li><tt>true</tt></li><li><tt>false</tt></li></ul></blockquote></li></ul></div><div class="step" step="14" data-x="17600" data-y="4800"><h1 id="allumer-une-led">Allumer une LED</h1><div class="notes"><p>lancer un bout d'exo pour allumer la LED</p></div></div><div class="step" step="15" data-x="19200" data-y="4800"><h1 id="solution">Solution :)</h1><pre class="highlight code c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{}</span></pre></div><div class="step" step="13" data-x="16000" data-y="4800"><h1 id="constantes">Constantes</h1><p>Arduino propose des constantes</p><ul><li>modes<blockquote><ul><li><tt>OUTPUT</tt></li><li><tt>INPUT</tt></li><li><tt>INPUT_PULLUP</tt></li></ul></blockquote></li><li>niveaux<blockquote><ul><li><tt>HIGH</tt></li><li><tt>LOW</tt></li></ul></blockquote></li><li>des raccourcis...<blockquote><ul><li><tt>LED_BUILTIN</tt></li><li><tt>true</tt></li><li><tt>false</tt></li></ul></blockquote></li></ul></div><div class="step" step="14" data-x="17600" data-y="4800"><h1 id="allumer-une-led">Allumer une LED</h1><div class="notes"><p>Lancer un bout d'exo pour allumer la LED</p></div></div><div class="step" step="15" data-x="19200" data-y="4800"><h1 id="solution">Solution :)</h1><pre class="highlight code c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -75,7 +75,7 @@
         <span class="n">i</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span></pre></div><div class="step" step="26" data-y="8000" data-x="33600"><h1 id="fonctions-procedures">Fonctions/Proc&#xE9;dures</h1><img src="imgs/fonctions.png" alt="" width="600px" height=""></img></div><div class="step" step="27" data-y="8000" data-x="35200"><h1 id="concept">Concept</h1><ul><li>bout de programme d&#xE9;sign&#xE9; par un nom</li><li>peut recevoir des param&#xE8;tres en entr&#xE9;e</li><li>peut renvoyer une valeur</li></ul><h1 id="variables-et-fonctions">Variables et fonctions</h1><ul><li>les variables d&#xE9;finies dans les fonctions ne sont accessibles <span class="i">que dedans</span></li><li>les variables d&#xE9;finies en dehors de toute fonction sont accessibles <span class="i">partout</span></li></ul></div><div class="step" step="28" data-x="36800" data-y="8000"><h1 id="syntaxe-generale">Syntaxe g&#xE9;n&#xE9;rale</h1><pre class="highlight code c"><span class="c1">// pseudo-code
-</span><span class="o">&lt;</span><span class="n">type</span> <span class="n">de</span> <span class="n">retour</span><span class="o">&gt;</span> <span class="n">nom_de_la_fonction</span> <span class="p">(</span><span class="n">type1</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">etc</span><span class="p">...)</span> <span class="p">{</span>
+</span><span class="o">&lt;</span><span class="n">type</span> <span class="n">de</span> <span class="n">retour</span><span class="o">&gt;</span> <span class="n">nom_de_la_fonction</span> <span class="p">(</span><span class="n">type1</span> <span class="n">param1</span><span class="p">,</span> <span class="n">etc</span><span class="p">...)</span> <span class="p">{</span>
     <span class="c1">// code
 </span><span class="p">}</span>
 
@@ -136,7 +136,7 @@
     <span class="c1">// fait un truc
 </span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// sinon...
 </span>    <span class="c1">// ou un autre
-</span><span class="p">}</span></pre></div><div class="step" step="35" data-x="46400" data-y="9600"><h1 id="on-en-chaine">On (en)chaine !</h1><pre class="highlight code c"><span class="k">if</span> <span class="p">(</span><span class="n">condition</span> <span class="n">A</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="p">}</span></pre></div><div class="step" step="35" data-x="46400" data-y="9600"><h1 id="on-en-chaine">On (en)cha&#xEE;ne !</h1><pre class="highlight code c"><span class="k">if</span> <span class="p">(</span><span class="n">condition</span> <span class="n">A</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// truc A
 </span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span> <span class="n">B</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// truc B
@@ -167,7 +167,7 @@ pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
     <span class="n">delay</span><span class="p">(</span><span class="n">temps</span><span class="p">);</span>
 <span class="p">}</span></pre></div><div class="step" step="41" data-x="54400" data-y="11200"><h1 id="double-blink">Double blink</h1><p>Deux boutons activent la LED, &#xE0; <span class="i">deux fr&#xE9;quences diff&#xE9;rentes</span>.</p></div><div class="step" step="42" data-x="56000" data-y="11200"><h1 id="id6">Solution</h1><pre class="highlight code c"><span class="cp">#define BP_R 2 </span><span class="c1">// bp rapide sur l'entr&#xE9;e 2
-</span><span class="cp">#define BP_L 3 </span><span class="c1">// bp rapide sur l'entr&#xE9;e 3
+</span><span class="cp">#define BP_L 3 </span><span class="c1">// bp lent sur l'entr&#xE9;e 3
 </span><span class="cp">#define TEMPS 250
 #define TEMPS_LONG 1000
 </span>
@@ -199,7 +199,7 @@ pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h
     <span class="n">delay</span><span class="p">(</span><span class="n">temps</span><span class="p">);</span>
 <span class="p">}</span></pre></div><div class="step" step="43" data-x="57600" data-y="11200"><h1 id="toggle-to-shine">Toggle-to-shine</h1><p>Un premier appui allume la LED, un second l'&#xE9;teint.</p></div><div class="step" step="44" data-x="59200" data-y="11200"><h1 id="id7">Solution</h1><pre class="highlight code c"><span class="k">const</span> <span class="kt">int</span> <span class="n">PB_PIN</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// BP connect&#xE9; pin 2
 </span><span class="k">const</span> <span class="kt">int</span> <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span> <span class="c1">// onboard LED on pin 13
-</span><span class="n">boolean</span> <span class="n">ledOn</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Drapeau de l'etat de la LED
+</span><span class="n">boolean</span> <span class="n">ledOn</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Drapeau de l&#x2019;&#xE9;tat de la LED
 </span>
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Configuration des broches d'E/S
@@ -221,7 +221,7 @@ pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h
 </span><span class="n">boolean</span> <span class="n">ledOn</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Drapeau "&#xE9;tat de la LED"
 // indicateur de traitement du basculement de bouton d&#xE9;but&#xE9;
 </span><span class="n">boolean</span> <span class="n">bPressAccepted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-<span class="c1">// Pour enregistrer le temps de demarrage du basculement
+<span class="c1">// Pour enregistrer le temps de d&#xE9;marrage du basculement
 </span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">timeRef</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -232,26 +232,26 @@ pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">PB_PIN</span><span class="p">)</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">transientPeriodStarted</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// si c'est le 1er passage a Zero
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">transientPeriodStarted</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// si c'est le 1er passage &#xE0; z&#xE9;ro
 </span>            <span class="n">transientPeriodStarted</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//on l'indique
 </span>            <span class="n">timeRef</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span> <span class="c1">// et on prend la ref&#xE9;rence de temps
 </span>        <span class="p">}</span>
-        <span class="c1">// si la periode du d&#xE9;lais d'attente est pass&#xE9;e
+        <span class="c1">// si la p&#xE9;riode du d&#xE9;lai d'attente est pass&#xE9;e
 </span>        <span class="c1">// et que le BP n'est pas encore consid&#xE9;r&#xE9; comme appuy&#xE9;
 </span>        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bPressAccepted</span> <span class="o">&amp;&amp;</span>
             <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">timeRef</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">TRANSIENT_PERIOD</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">ledOn</span> <span class="o">=</span> <span class="o">!</span><span class="n">ledOn</span><span class="p">;</span> <span class="c1">// on change l'etat de la led
+            <span class="n">ledOn</span> <span class="o">=</span> <span class="o">!</span><span class="n">ledOn</span><span class="p">;</span> <span class="c1">// on change l'&#xE9;tat de la led
 </span>            <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">ledOn</span><span class="p">);</span>
 
-            <span class="n">bPressAccepted</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// et on enregistre l'appuis sur le BP
+            <span class="n">bPressAccepted</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// et on enregistre l'appui sur le BP
 </span>        <span class="p">}</span>
     <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span> <span class="c1">// BP relach&#xE9; -&gt; on remet a 0 tout les indicateurs
+    <span class="k">else</span> <span class="p">{</span> <span class="c1">// BP rel&#xE2;ch&#xE9; -&gt; on remet &#xE0; 0 tous les indicateurs
 </span>        <span class="n">transientPeriodStarted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
         <span class="n">bPressAccepted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span></pre></div><div class="step" step="47" id="hardw_bouncing" data-x="64000" data-y="11200"><h1 id="antirebond-materiel">Antirebond mat&#xE9;riel</h1><img src="imgs/antirebond_condo.png" alt="" width="250px" height=""></img><p>Le code est lourd non ?</p><p>On peut r&#xE9;aliser un circuit antirebond avec un condensateur en parall&#xE8;le du bouton.</p></div><div class="step" step="48" data-y="12800" data-x="64000"><h1 id="entrees-sorties-analogiques">Entr&#xE9;es/Sorties Analogiques</h1></div><div class="step" step="49" id="pwm" data-y="12800" data-x="65600"><h1 id="sortie-pwm">Sortie PWM</h1><img src="imgs/pwm.png" alt="" width="300px" height=""></img><p><span class="i">PWM</span> : <em>Pulse Width Modulation</em>, permet de choisir un "taux" d'allumage et d'extinction</p><pre class="highlight code c"><span class="n">analogWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">duty_cycle</span><span class="p">)</span></pre><p>Permet de moduler l'&#xE9;nergie moyenne disponible en sortie (le signal n'est pas sinuso&#xEF;dal)...</p></div><div class="step" step="50" data-x="67200" data-y="12800"><h1 id="heartbeat">HeartBeat</h1><p>Allumer puis &#xE9;teindre la led progressivement</p></div><div class="step" step="51" data-x="68800" data-y="12800"><h1 id="id8">Solution</h1><pre class="highlight code c"><span class="kt">int</span> <span class="n">led</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// pin de la LED, doit etre une pin qui permet le pwm
-</span><span class="kt">int</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// intensit&#xE9;e de la LED
+<span class="p">}</span></pre></div><div class="step" step="47" id="hardw_bouncing" data-x="64000" data-y="11200"><h1 id="antirebond-materiel">Antirebond mat&#xE9;riel</h1><img src="imgs/antirebond_condo.png" alt="" width="250px" height=""></img><p>Le code est lourd non ?</p><p>On peut r&#xE9;aliser un circuit antirebond avec un condensateur en parall&#xE8;le du bouton.</p></div><div class="step" step="48" data-y="12800" data-x="64000"><h1 id="entrees-sorties-analogiques">Entr&#xE9;es/Sorties Analogiques</h1></div><div class="step" step="49" id="pwm" data-y="12800" data-x="65600"><h1 id="sortie-pwm">Sortie PWM</h1><img src="imgs/pwm.png" alt="" width="300px" height=""></img><p><span class="i">PWM</span> : <em>Pulse Width Modulation</em>, permet de choisir un "taux" d'allumage et d'extinction</p><pre class="highlight code c"><span class="n">analogWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">duty_cycle</span><span class="p">)</span></pre><p>Permet de moduler l'&#xE9;nergie moyenne disponible en sortie (le signal n'est pas sinuso&#xEF;dal)...</p></div><div class="step" step="50" data-x="67200" data-y="12800"><h1 id="heartbeat">HeartBeat</h1><p>Allumer puis &#xE9;teindre la led progressivement</p></div><div class="step" step="51" data-x="68800" data-y="12800"><h1 id="id8">Solution</h1><pre class="highlight code c"><span class="kt">int</span> <span class="n">led</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// pin de la LED, doit &#xEA;tre une pin qui permet le pwm
+</span><span class="kt">int</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// intensit&#xE9; de la LED
 </span><span class="kt">int</span> <span class="n">fadeAmount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// graduation de changement
 </span>
 <span class="c1">// the setup routine runs once when you press reset:
@@ -261,25 +261,25 @@ pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// on place la valeur d'intensit&#xE9;e
+    <span class="c1">// on place la valeur d'intensit&#xE9;
 </span>    <span class="n">analogWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">brightness</span><span class="p">);</span>
 
-    <span class="c1">// on change la valeur pour la prochaine foi
+    <span class="c1">// on change la valeur pour la prochaine fois
 </span>    <span class="n">brightness</span> <span class="o">=</span> <span class="n">brightness</span> <span class="o">+</span> <span class="n">fadeAmount</span><span class="p">;</span>
 
-    <span class="c1">// si on est a un mini ou un max on change le signe de la graduation
+    <span class="c1">// si on est &#xE0; un mini ou un max on change le signe de la graduation
 </span>    <span class="k">if</span> <span class="p">(</span><span class="n">brightness</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">brightness</span> <span class="o">==</span> <span class="mi">255</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">fadeAmount</span> <span class="o">=</span> <span class="o">-</span><span class="n">fadeAmount</span> <span class="p">;</span>
     <span class="p">}</span>
-    <span class="c1">// petite pose
+    <span class="c1">// petite pause
 </span>    <span class="n">delay</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
-<span class="p">}</span></pre></div><div class="step" step="52" id="quantif" data-x="70400" data-y="12800"><h1 id="entree-analogique">Entr&#xE9;e analogique</h1><img src="imgs/quantif.png" alt="" width="300px" height=""></img><p>Les entr&#xE9;es analogiques sont rep&#xE9;r&#xE9;e A0 &#xE0; A5 sur l'Arduino (Uno).</p><p>Pas besoin de &#xA0;<tt>pinMode</tt> pour elles, seulement :</p><pre class="highlight code c"><span class="kt">int</span> <span class="n">lecture</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">pin</span><span class="p">);</span> <span class="c1">// pin 0 -&gt; 5
+<span class="p">}</span></pre></div><div class="step" step="52" id="quantif" data-x="70400" data-y="12800"><h1 id="entree-analogique">Entr&#xE9;e analogique</h1><img src="imgs/quantif.png" alt="" width="300px" height=""></img><p>Les entr&#xE9;es analogiques sont rep&#xE9;r&#xE9;es de A0 &#xE0; A5 sur l'Arduino (Uno).</p><p>Pas besoin de &#xA0;<tt>pinMode</tt> pour elles, seulement :</p><pre class="highlight code c"><span class="kt">int</span> <span class="n">lecture</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">pin</span><span class="p">);</span> <span class="c1">// pin 0 -&gt; 5
 </span></pre><p>La conversion analogique-num&#xE9;rique est sur <span class="i">10 bits</span>, la valeur renvoy&#xE9;e va donc de 0 &#xE0; 1023.</p></div><div class="step" step="53" data-x="72000" data-y="12800"><h1 id="map">Map</h1><p>Pour convertir la valeur renvoy&#xE9;e par <tt>analogRead</tt> en valeur entre 0 et 255 (8 bits), on peut utiliser <tt>map()</tt>:</p><pre class="highlight code c"><span class="n">map</span><span class="p">(</span><span class="n">val_a_convertir</span><span class="p">,</span> <span class="n">bas_avant</span><span class="p">,</span> <span class="n">haut_avant</span><span class="p">,</span> <span class="n">bas_apres</span><span class="p">,</span> <span class="n">haut_apres</span><span class="p">);</span>
 
 <span class="c1">// bas_avant, haut_avant : bornes de l'&#xE9;chelle avant conversion
 // bas_apres, haut_apres : bornes de l'&#xE9;chelle apr&#xE8;s conversion
-</span></pre><p>Ainsi, on peut obtenir des valeurs pr&#xEA;tes &#xE0; &#xEA;tre pass&#xE9;es &#xE0; <tt>analogWrite</tt> (par exemple...)</p></div><div class="step" step="54" data-x="73600" data-y="12800"><h1 id="heartbeat-bride">Heartbeat... brid&#xE9;</h1><p>Un potentiom&#xE8;tre permet de r&#xE8;gler l'intensit&#xE9; maximale</p></div><div class="step" step="55" data-x="75200" data-y="12800"><h1 id="id9">Solution</h1><pre class="highlight code c"><span class="kt">int</span> <span class="n">led</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>           <span class="c1">// pin de la LED, doit etre une pin qui permet le pwm
-</span><span class="kt">int</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// intensit&#xE9;e de la LED
+</span></pre><p>Ainsi, on peut obtenir des valeurs pr&#xEA;tes &#xE0; &#xEA;tre pass&#xE9;es &#xE0; <tt>analogWrite</tt> (par exemple...)</p></div><div class="step" step="54" data-x="73600" data-y="12800"><h1 id="heartbeat-bride">Heartbeat... brid&#xE9;</h1><p>Un potentiom&#xE8;tre permet de r&#xE9;gler l'intensit&#xE9; maximale</p></div><div class="step" step="55" data-x="75200" data-y="12800"><h1 id="id9">Solution</h1><pre class="highlight code c"><span class="kt">int</span> <span class="n">led</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>           <span class="c1">// pin de la LED, doit &#xEA;tre une pin qui permet le pwm
+</span><span class="kt">int</span> <span class="n">brightness</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// intensit&#xE9; de la LED
 </span><span class="kt">int</span> <span class="n">fadeAmount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="c1">// graduation de changement
 </span>
 <span class="c1">// the setup routine runs once when you press reset:
@@ -290,7 +290,7 @@ pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">max_brightness</span> <span class="o">=</span> <span class="n">map</span> <span class="p">(</span><span class="n">analogRead</span><span class="p">(</span><span class="n">A0</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>   <span class="mi">255</span><span class="p">);</span>
 
-    <span class="c1">// on place la valeur d'intensit&#xE9;e
+    <span class="c1">// on place la valeur d'intensit&#xE9;
 </span>    <span class="n">analogWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">brightnessss</span><span class="p">);</span>
 
     <span class="c1">// on change la valeur pour la prochaine fois
@@ -301,23 +301,23 @@ pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h
         <span class="n">brightness</span> <span class="o">=</span> <span class="n">maximaleax_brightness</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="c1">// si on est a un mini ou un max on change le signe de la graduation
+    <span class="c1">// si on est &#xE0; un mini ou un max on change le signe de la graduation
 </span>    <span class="k">if</span> <span class="p">(</span><span class="n">brightness</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">brightness</span> <span class="o">&gt;=</span> <span class="n">max_brightness</span><span class="p">)</span><span class="n">max_brightness</span><span class="p">{</span>
         <span class="n">fadeAmount</span> <span class="o">=</span> <span class="o">-</span><span class="n">fadeAmount</span> <span class="p">;</span>
     <span class="p">}</span>
-    <span class="c1">// petite pose
+    <span class="c1">// petite pause
 </span>    <span class="n">delay</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="mi">255</span> <span class="o">/</span> <span class="n">maisx_brightness</span><span class="p">);</span>
-<span class="p">}</span></pre></div><div class="step" step="56" data-y="14400" data-x="75200"><h1 id="liaison-serie">Liaison S&#xE9;rie</h1></div><div class="step" step="57" data-y="14400" data-x="76800"><h1 id="let-s-start">Let's start</h1><p>L'arduino peut discuter avec d'autres &#xE9;quipements (d'autres arduinos, certains objets, un ordinateur,...) grace &#xE0; sa
+<span class="p">}</span></pre></div><div class="step" step="56" data-y="14400" data-x="75200"><h1 id="liaison-serie">Liaison S&#xE9;rie</h1></div><div class="step" step="57" data-y="14400" data-x="76800"><h1 id="let-s-start">Let's start</h1><p>L'arduino peut discuter avec d'autres &#xE9;quipements (d'autres arduinos, certains objets, un ordinateur,...) gr&#xE2;ce &#xE0; sa
 <span class="i">liaison s&#xE9;rie</span>.</p><p>Pour l'utiliser, il faut d'abord l'initialiser :</p><pre class="highlight code c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// ....
 </span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">vitesse</span><span class="p">);</span>
 <span class="p">}</span></pre><p>La vitesse sp&#xE9;cifi&#xE9;e est la vitesse de transmission (en bauds &#x2015; symboles par seconde).</p><p>Pour les vitesses on a le choix : 9600, 19200, 28800, 38400, 57600, 115200, etc...</p></div><div class="step" step="58" data-x="78400" data-y="14400"><h1 id="fonctions-utiles">Fonctions utiles</h1><h2 id="serial-available">Serial.available()</h2><p>Permet de savoir s'il y a des symboles dans le tampon d'entr&#xE9;e (taille maxi: 128 caract&#xE8;res).</p><h2 id="serial-read">Serial.read()</h2><p>Renvoie le premier caract&#xE8;re dans le tampon d'entr&#xE9;e sous la forme d'un entier ou -1 si le tampon est vide.</p><h2 id="serial-print">Serial.print()</h2><pre class="highlight code c"><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
-<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">format</span><span class="p">);</span></pre><p>Dans le premier cas, Serial g&#xE8;re le format elle-m&#xEA;me :</p><ul><li>un entier est affich&#xE9; comme nombre d&#xE9;cimal ;</li><li>un flottant (type <tt>float</tt>) est affich&#xE9; avec 2 d&#xE9;cimale ;</li><li>une chaine est affich&#xE9;e... comme une chaine.</li></ul><p>Pour le deuxi&#xE8;me cas, voyons quelques exemples...</p></div><div class="step" step="59" data-x="80000" data-y="14400"><h1 id="id10">Fonctions utiles</h1><h2 id="id11">Serial.print()</h2><pre class="highlight code c"><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="n">DEC</span><span class="p">);</span>  <span class="c1">// affiche 75
+<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">format</span><span class="p">);</span></pre><p>Dans le premier cas, Serial g&#xE8;re le format elle-m&#xEA;me :</p><ul><li>un entier est affich&#xE9; comme nombre d&#xE9;cimal ;</li><li>un flottant (type <tt>float</tt>) est affich&#xE9; avec 2 d&#xE9;cimales ;</li><li>une cha&#xEE;ne est affich&#xE9;e... comme une cha&#xEE;ne.</li></ul><p>Pour le deuxi&#xE8;me cas, voyons quelques exemples...</p></div><div class="step" step="59" data-x="80000" data-y="14400"><h1 id="id10">Fonctions utiles</h1><h2 id="id11">Serial.print()</h2><pre class="highlight code c"><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="n">DEC</span><span class="p">);</span>  <span class="c1">// affiche 75
 </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="n">BIN</span><span class="p">);</span>  <span class="c1">// affiche 100101
 </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="n">HEX</span><span class="p">);</span>  <span class="c1">// affiche 4B
 </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="n">BYTE</span><span class="p">);</span> <span class="c1">// affiche K (code ascii: 75)
-</span></pre><p><span class="i">Attention</span> : la repr&#xE9;sentation ASCII (lisible) est diff&#xE9;rente de la valeur de ce qu'on y lit... 0 DEC -&gt; 48 ASCII...</p></div><div class="step" step="60" data-x="81600" data-y="14400"><h1 id="exemple">Exemple</h1><p>On veut pouvoir allumer changer l'&#xE9;tat de deux LED en envoyant des codes sur la liaison s&#xE9;rie :</p><ul><li>'A' pour la premi&#xE8;re</li><li>'B' pour la seconde</li></ul><pre class="highlight code c"><span class="c1">// A pour la led pin 9
+</span></pre><p><span class="i">Attention</span> : la repr&#xE9;sentation ASCII (lisible) est diff&#xE9;rente de la valeur de ce qu'on y lit... 0 DEC -&gt; 48 ASCII...</p></div><div class="step" step="60" data-x="81600" data-y="14400"><h1 id="exemple">Exemple</h1><p>On veut pouvoir changer l'&#xE9;tat de deux LED en envoyant des codes sur la liaison s&#xE9;rie :</p><ul><li>'A' pour la premi&#xE8;re</li><li>'B' pour la seconde</li></ul><pre class="highlight code c"><span class="c1">// A pour la led pin 9
 // B pour la led pin 13
 </span>
 <span class="cp">#define LED1 9
@@ -332,12 +332,12 @@ pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h
     <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">Serial</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">;</span> <span class="c1">// wait for serial port to connect. Needed for Leonardo only
 </span>    <span class="p">}</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"La liason serie sur arduino"</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"La liaison s&#xE9;rie sur arduino"</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="c1">// si il y a quelque chose sur la liason serie, le lire:
+    <span class="c1">// s'il y a quelque chose sur la liason s&#xE9;rie, le lire:
 </span>    <span class="k">while</span> <span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="kt">int</span> <span class="n">intRep</span> <span class="o">=</span> <span class="n">Serial</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
@@ -353,5 +353,5 @@ pull-down.</p></div><div class="step" step="38" data-x="49600" data-y="11200"><h
             <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span> <span class="n">led2</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></pre></div><div class="step" step="61" data-y="16000" data-x="81600"><h1 id="vous-en-voulez-encore">Vous en voulez encore ?</h1></div><div class="step" step="62" data-y="16000" data-x="83200"><h1 id="exos-possibles">Exos possibles</h1><ul><li>faites afficher la valeur du potentiom&#xE8;tre du deuxi&#xE8;me heartbeat sur la liaison s&#xE9;rie</li><li>controlez la vitesse et l'intensit&#xE9; du heartbeat via des codes sur la liaison s&#xE9;rie</li><li>programmez d'autre modes pour vos deux led (par exemple l'encodage en morse de ce qui arrive sur la liaison s&#xE9;rie...
+<span class="p">}</span></pre></div><div class="step" step="61" data-y="16000" data-x="81600"><h1 id="vous-en-voulez-encore">Vous en voulez encore ?</h1></div><div class="step" step="62" data-y="16000" data-x="83200"><h1 id="exos-possibles">Exos possibles</h1><ul><li>faites afficher la valeur du potentiom&#xE8;tre du deuxi&#xE8;me heartbeat sur la liaison s&#xE9;rie</li><li>contr&#xF4;lez la vitesse et l'intensit&#xE9; du heartbeat via des codes sur la liaison s&#xE9;rie</li><li>programmez d'autres modes pour vos deux led (par exemple l'encodage en morse de ce qui arrive sur la liaison s&#xE9;rie...
 long: 2 LED, court: 1 LED).</li><li>etc...</li></ul></div><div class="step" step="63" id="thanks" data-y="17600" data-x="83200"><img src="imgs/haum.png" alt="" width="200px" height=""></img><h1 id="merci-beaucoup">Merci beaucoup !</h1><h2 id="arduino-cc">arduino.cc</h2><h2 id="haum-org">haum.org</h2><p>J&#xE9;rome (jblb), Mathieu (matael), le HAUM pour Beelab et La Ruche Num&#xE9;rique</p></div></div><div id="hovercraft-help" class="hide"><table><tr><th>Space</th><td>Forward</td></tr><tr><th>Left, Down, Page Down</th><td>Next slide</td></tr><tr><th>Right, Up, Page Up</th><td>Previous slide</td></tr><tr><th>P</th><td>Open presenter console</td></tr><tr><th>H</th><td>Toggle this help</td></tr></table></div><script type="text/javascript" src="js/impress.js"></script><script type="text/javascript" src="js/impressConsole.js"></script><script type="text/javascript" src="js/hovercraft.js"></script></body></html>
