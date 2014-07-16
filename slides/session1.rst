@@ -1,5 +1,4 @@
 :data-transition-duration: 1000
-:skip-help: true
 :css: css/style.css
 
 .. role:: i
